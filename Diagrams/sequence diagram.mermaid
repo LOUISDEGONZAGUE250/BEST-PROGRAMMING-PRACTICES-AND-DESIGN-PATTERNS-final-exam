@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant Customer
+    participant System
+    participant Database
+    participant Payment as Payment Gateway
+    
+    Customer->>System: 1. Browse
+    System->>Database: 2. Get Tours
+    Database->>System: 3. Return Tours
+    System->>Customer: 4. Show Tours
+    
+    Customer->>System: 5. Select Tour
+    System->>Database: 6. Check Availability
+    Database->>System: 7. Availability
+    System->>Customer: 8. Booking Form
+    
+    Customer->>System: 9. Submit Form
+    System->>Database: 10. Create Booking
+    Database->>System: 11. Booking Created
+    System->>Customer: 12. Payment Page
+    
+    Customer->>System: 13. Submit Payment
+    System->>Payment: 14. Process Payment
+    Payment->>System: 15. Payment Result
+    System->>Database: 16. Update Status
+    Database->>System: 17. Status Updated
+    System->>Customer: 18. Confirmation

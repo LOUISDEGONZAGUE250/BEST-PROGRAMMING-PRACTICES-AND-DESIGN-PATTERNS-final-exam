@@ -1,0 +1,24 @@
+graph TD
+    subgraph Client Tier
+        UI[User Interface HTML/CSS/JS]
+    end
+
+    subgraph Web Server Tier
+        Web[Apache Web Server]
+        Router[PHP Scripts / Router]
+        Auth[Authentication Module]
+        Repo[TourRepository]
+        Config[config.php / PDO Connection]
+    end
+
+    subgraph Database Tier
+        DB[(MySQL Database)]
+    end
+
+    %% Connections
+    UI -->|HTTP GET/POST| Web
+    Web --> Router
+    Router --> Auth
+    Router --> Repo
+    Repo --> Config
+    Config -->|TCP/IP Port 3306| DB

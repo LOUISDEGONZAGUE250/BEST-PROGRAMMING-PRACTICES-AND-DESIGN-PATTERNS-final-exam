@@ -1,0 +1,38 @@
+graph TB
+    Customer[Customer]
+    Admin[Admin]
+    PayGateway[Payment Gateway]
+    
+    subgraph System[TRAVEL TOUR BOOKING SYSTEM]
+        Browse[Browse Tours]
+        BookTour[Book Tour]
+        Manage[Manage System]
+        ProcessPay[Process Payment]
+        Reports[Generate Reports]
+        HandleUsers[Handle Users]
+    end
+    
+    TourDB[(Tour Database)]
+    BookingDB[(Booking Database)]
+    UserDB[(User Database)]
+    
+    Customer -->|Tour requests<br/>Booking details<br/>Payment info| System
+    System -->|Tour listings<br/>Confirmations<br/>Receipts| Customer
+    
+    Admin -->|Management commands<br/>Updates<br/>Queries| System
+    System -->|Reports<br/>Statistics<br/>User data| Admin
+    
+    System -->|Payment authorization<br/>requests| PayGateway
+    PayGateway -->|Payment confirmation| System
+    
+    System -.-> TourDB
+    System -.-> BookingDB
+    System -.-> UserDB
+    
+    style Customer fill:#FFE4B5
+    style Admin fill:#FFE4B5
+    style PayGateway fill:#FFE4B5
+    style System fill:#87CEEB
+    style TourDB fill:#90EE90
+    style BookingDB fill:#90EE90
+    style UserDB fill:#90EE90

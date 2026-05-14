@@ -1,0 +1,316 @@
+body {
+    background: #f4f6fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: linear-gradient(90deg, #1E88E5 60%, #4CAF50 100%);
+    color: #fff;
+    padding: 0;
+    margin-bottom: 0;
+    box-shadow: 0 2px 8px rgba(30,136,229,0.08);
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+nav div:last-child a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+nav div:last-child a.active, nav div:last-child a:hover {
+    color: #F57C00;
+}
+.dashboard-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(30,136,229,0.08);
+    padding: 2rem 2.5rem 2.5rem 2.5rem;
+}
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.page-title {
+    font-size: 2rem;
+    color: #1E88E5;
+    margin: 0;
+}
+.add-tour-button {
+    background: linear-gradient(45deg, #4CAF50, #1E88E5);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 4px rgba(30,136,229,0.10);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.add-tour-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(30,136,229,0.18);
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.stat-card {
+    background: linear-gradient(135deg, #1E88E5 80%, #4CAF50 100%);
+    color: #fff;
+    padding: 1.5rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(30,136,229,0.10);
+    text-align: center;
+}
+.stat-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+.search-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+.search-box {
+    flex: 1;
+    min-width: 250px;
+}
+.search-box input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+.search-box input:focus {
+    border-color: #1E88E5;
+    outline: none;
+}
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.filter-group select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.filter-group select:focus {
+    border-color: #1E88E5;
+    outline: none;
+}
+.message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+.message.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+.message.error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+.tours-table {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(30,136,229,0.08);
+    overflow: hidden;
+}
+.tours-table th {
+    background: #f8f9fa;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #1E88E5;
+    border-bottom: 2px solid #e0e0e0;
+}
+.tours-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+.tours-table tr:hover {
+    background: #f5f5f5;
+}
+.tour-name {
+    font-weight: 500;
+    color: #1E88E5;
+}
+.tour-price {
+    font-weight: 600;
+    color: #4CAF50;
+}
+.tour-duration {
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.tour-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+.action-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+.edit-button {
+    background: #e3f2fd;
+    color: #1E88E5;
+}
+.edit-button:hover {
+    background: #bbdefb;
+}
+.delete-button {
+    background: #ffebee;
+    color: #d32f2f;
+}
+.delete-button:hover {
+    background: #ffcdd2;
+}
+.availability-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+.availability-available {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+.availability-unavailable {
+    background: #ffebee;
+    color: #c62828;
+}
+.photo-preview {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+.photo-preview img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid #e0e0e0;
+}
+.form-group.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.form-group.checkbox input[type="checkbox"] {
+    width: auto;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30,136,229,0.15);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 24px rgba(30,136,229,0.18);
+}
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.button.primary {
+    background: #1E88E5;
+    color: #fff;
+}
+.button.secondary {
+    background: #f5f5f5;
+    color: #333;
+}
+.button.danger {
+    background: #F57C00;
+    color: #fff;
+}
+.button:hover {
+    opacity: 0.9;
+}
+footer {
+    background: linear-gradient(90deg, #1E88E5 60%, #4CAF50 100%);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: 20px 20px 0 0;
+    margin-top: 3rem;
+}
+@media (max-width: 700px) {
+    .dashboard-section {
+        padding: 1rem 0.5rem;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-content {
+        padding: 1rem;
+    }
+} 

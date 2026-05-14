@@ -1,0 +1,8 @@
+# Ignore files that shouldn't be copied into the image
+.git
+vendor
+node_modules
+tests
+.DS_Store
+*.log
+.env

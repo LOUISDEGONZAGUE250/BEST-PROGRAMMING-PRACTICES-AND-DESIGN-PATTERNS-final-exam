@@ -1,0 +1,50 @@
+name: Docker CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -t ttbooking:ci .
+
+      - name: Start DB container
+        run: |
+          docker run -d --name tt_db -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=ttbooking -e MYSQL_USER=ttuser -e MYSQL_PASSWORD=secret mysql:8.0
+
+      - name: Run web container linked to DB
+        run: |
+          docker run -d --name tt_web --link tt_db:db -p 8080:80 ttbooking:ci
+
+      - name: Wait for web to be up and respond 200
+        run: |
+          for i in {1..30}; do
+            if curl -sSf http://localhost:8080 >/dev/null; then
+              echo "web is up"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "web did not respond" && exit 1
+
+      - name: Run repository tests
+        run: |
+          # Run the repo tests inside a temporary container linked to the DB
+          docker run --rm --link tt_db:db ttbooking:ci php tests/TourRepositoryTest.php
+
+      - name: Cleanup
+        if: always()
+        run: |
+          docker rm -f tt_web || true
+          docker rm -f tt_db || true

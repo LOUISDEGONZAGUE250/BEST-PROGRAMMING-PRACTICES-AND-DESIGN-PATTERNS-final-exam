@@ -1,0 +1,15 @@
+graph TD
+    Start([START]) --> Browse[Browse Tours]
+    Browse --> Select[Select Tour]
+    Select --> Check{Check<br/>Availability}
+    Check -->|Available| Book[Book Tour]
+    Check -->|Not Available| Error[Show Error<br/>Message]
+    Book --> Payment[Make Payment]
+    Payment --> Confirm[Confirm Booking]
+    Confirm --> End([END])
+    Error --> End
+    
+    style Start fill:#90EE90
+    style End fill:#FFB6C6
+    style Check fill:#FFE4B5
+    style Confirm fill:#87CEEB

@@ -1,0 +1,39 @@
+graph TD
+    %% Actors
+    Customer((Customer))
+    Admin((Administrator))
+
+    %% System Boundary
+    subgraph Travel Tour Booking System
+        UC1[Register Account]
+        UC2[Login]
+        UC3[Browse Tours]
+        UC4[Book a Tour]
+        UC5[Cancel Booking]
+        UC6[View Personal Reports]
+        UC7[Manage Tours CRUD]
+        UC8[Manage Users]
+        UC9[View System Reports]
+    end
+
+    %% Customer Relationships
+    Customer --> UC1
+    Customer --> UC2
+    Customer --> UC3
+    Customer --> UC4
+    Customer --> UC5
+    Customer --> UC6
+
+    %% Admin Relationships
+    Admin --> UC2
+    Admin --> UC7
+    Admin --> UC8
+    Admin --> UC9
+
+    %% Includes
+    UC4 -.->|<<includes>>| UC2
+    UC5 -.->|<<includes>>| UC2
+    UC6 -.->|<<includes>>| UC2
+    UC7 -.->|<<includes>>| UC2
+    UC8 -.->|<<includes>>| UC2
+    UC9 -.->|<<includes>>| UC2

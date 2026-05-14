@@ -1,0 +1,51 @@
+classDiagram
+    class User {
+        +int id
+        +string username
+        +string email
+        +string password
+        +string role
+        +datetime created_at
+        +register()
+        +login()
+        +logout()
+    }
+
+    class Tour {
+        +int id
+        +string name
+        +string description
+        +float price
+        +int duration
+        +int max_participants
+        +string location
+        +string category
+        +boolean availability
+    }
+
+    class Booking {
+        +int id
+        +int user_id
+        +int tour_id
+        +date booking_date
+        +int num_people
+        +float total_price
+        +string status
+        +datetime payment_date
+        +string receipt_number
+        +processPayment()
+        +cancel()
+    }
+
+    class TourRepository {
+        -PDO pdo
+        +getAllTours()
+        +getTourById(id)
+        +createTour(data)
+        +updateTour(id, data)
+        +deleteTour(id)
+    }
+
+    User "1" -- "*" Booking : makes
+    Tour "1" -- "*" Booking : has
+    TourRepository ..> Tour : manages

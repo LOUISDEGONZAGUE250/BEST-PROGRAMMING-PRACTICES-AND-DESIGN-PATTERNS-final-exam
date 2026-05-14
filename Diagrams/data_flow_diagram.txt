@@ -1,0 +1,47 @@
+
+DATA FLOW DIAGRAM - Level 0 (Context Diagram)
+
+┌─────────────────────────────────────────────────────────────┐
+│                 EXTERNAL ENTITIES                            │
+├─────────────────────────────────────────────────────────────┤
+│  ┌─────────────┐      ┌─────────────┐      ┌─────────────┐ │
+│  │   CUSTOMER  │      │   ADMIN     │      │   PAYMENT   │ │
+│  │             │      │             │      │   GATEWAY   │ │
+│  └──────┬──────┘      └──────┬──────┘      └──────┬──────┘ │
+│         │                    │                    │        │
+│         ▼                    ▼                    ▼        │
+├─────────────────────────────────────────────────────────────┤
+│                 PROCESSES                                    │
+├─────────────────────────────────────────────────────────────┤
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │            TRAVEL TOUR BOOKING SYSTEM                 │   │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │   │
+│  │  │   Browse    │  │   Book      │  │   Manage    │  │   │
+│  │  │    Tours    │  │    Tour     │  │   System    │  │   │
+│  │  └─────────────┘  └─────────────┘  └─────────────┘  │   │
+│  │                                                     │   │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │   │
+│  │  │  Process    │  │  Generate   │  │   Handle    │  │   │
+│  │  │  Payment    │  │  Reports    │  │   Users     │  │   │
+│  │  └─────────────┘  └─────────────┘  └─────────────┘  │   │
+│  └──────────────────────────────────────────────────────┘   │
+│         │                    │                    │        │
+│         ▼                    ▼                    ▼        │
+├─────────────────────────────────────────────────────────────┤
+│                 DATA STORES                                 │
+├─────────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐        │
+│  │   TOUR      │  │  BOOKING    │  │    USER     │        │
+│  │  DATABASE   │  │  DATABASE   │  │  DATABASE   │        │
+│  └─────────────┘  └─────────────┘  └─────────────┘        │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+DATA FLOWS:
+1. Customer → System: Tour requests, Booking details, Payment info
+2. System → Customer: Tour listings, Booking confirmations, Receipts
+3. Admin → System: Management commands, Updates, Queries
+4. System → Admin: Reports, Statistics, User data
+5. System → Payment Gateway: Payment authorization requests
+6. Payment Gateway → System: Payment confirmation
+[file content end]
